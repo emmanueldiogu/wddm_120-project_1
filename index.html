@@ -2,61 +2,115 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="light dark" />
     <title>Dynamic Web Page</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="style.css" />
   </head>
+
   <body>
-    <!-- navigation bar with at least three links -->
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="#">Navbar</a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Features</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Pricing</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-    <section>
-      <!-- header with title -->
-      <header>
-        <h1>heading</h1>
-        <p>sub heading</p>
+    <div class="outer-grid">
+      <header class="headline">
+        <!-- header with title -->
+        <h1>DOM Manipulation</h1>
+        <!-- navigation bar with at least three links -->
+        <nav class="navbar">
+          <div class="navbar-inner container">
+            <a href="#" class="brand">Travel Planner</a>
+            <button class="menu-button">menu</button>
+            <div class="collapse">
+              <div class="mobile-menu-header">
+                <a href="#">Travel Planner</a>
+                <button>close</button>
+              </div>
+              <div class="mobile-menu-body">
+                <ul>
+                  <li><a href="" class="active">Home</a></li>
+                  <li><a href="">Destinations</a></li>
+                  <li><a href="">Contact</a></li>
+                </ul>
+                <div class="toggle-div">
+                  <input
+                    type="checkbox"
+                    class="checkbox"
+                    id="checkbox"
+                    aria-label="toggle dark mode"
+                  />
+                  <label for="checkbox" class="checkbox-label">
+                    <i class="fas fa-moon"></i>
+                    <i class="fas fa-sun fa-sm"></i>
+                    <span class="ball"></span>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </nav>
       </header>
-    </section>
-    <section>
-      <!-- main content area with at least two sections or article -->
-      <main></main>
-      <!-- sidebar with a list of items -->
-      <aside></aside>
-    </section>
-    <!-- footer with your name as the author -->
-    <footer>
-      <h1 class="">Heading</h1>
-    </footer>
+      <div class="inner-grid">
+        <!-- main content area with at least two sections or article -->
+        <main class="main">
+          <div class="container">
+            <section id="section-1">
+              <h2>Weather Forecast</h2>
+              <div class="weather-details">
+                <section class="current-location">
+                  <h3>Current Location</h3>
+                  <p>Latitude: 40.7128 N</p>
+                  <p>Longitude: 74.0060 W</p>
+                </section>
+                <section class="weather-main">
+                  <h3>Weather</h3>
+                  <p>22°C, Sunny</p>
+                </section>
+              </div>
+            </section>
+            <section id="section-2">
+              <h2>Section Two</h2>
+              <p>
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                Deleniti suscipit officia reiciendis consectetur! Tempore vel
+                voluptas alias cum consequuntur dolores excepturi itaque illum.
+                Commodi voluptatum possimus quaerat quis reprehenderit unde
+                mollitia sunt atque dolore facere soluta itaque, ipsum rerum vel
+                sint, optio, perspiciatis tempora minus. Laboriosam, ea? Ipsa,
+                ducimus accusamus? Necessitatibus, dolorem? Ea, et harum. Enim
+                voluptatem rem cumque facilis reiciendis, rerum iusto
+                accusantium blanditiis voluptate aspernatur impedit obcaecati
+                consectetur hic odit ducimus quos atque iure reprehenderit
+                soluta totam? Asperiores eum labore deleniti corrupti unde illum
+                laudantium saepe natus quae nam, quaerat recusandae molestias
+                sit perferendis doloremque hic necessitatibus officia!
+              </p>
+            </section>
+          </div>
+        </main>
+        <!-- sidebar with a list of items -->
+        <aside class="sidebar">
+          <h2>Sidebar features</h2>
+          <form action="">
+            <input type="text" /><input type="button" value="Add" />
+          </form>
+          <ul id="side-list">
+            <li>Item 1</li>
+            <li>Item 2</li>
+          </ul>
+        </aside>
+      </div>
+      <!-- footer with your name as the author -->
+      <footer class="footer">
+        <div class="container">
+          <p>© 2024 by Emmanuel Diogu. All rights reserved.</p>
+        </div>
+      </footer>
+    </div>
     <script src="./main.js"></script>
   </body>
 </html>

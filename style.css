@@ -1,0 +1,374 @@
+@import url("https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+/* 
+===================================
+Root elements 
+===================================
+*/
+:root {
+  --primary-light: #4b68f2;
+  --text-light: #191c34;
+  --body-light: #f6f7fe;
+  --nav-link-light: #f6f7fe;
+  --section-bg-light: #ffffff;
+  --footer-light: #04050c;
+  --main-light: darkblue;
+
+  --primary-dark: #1e2a6a;
+  --text-dark: #f6f7ee;
+  --body-dark: #030014;
+  --nav-link-dark: #f6f7fe;
+  --section-bg-dark: #191c34;
+  --footer-dark: #04050c;
+  --main-dark: darkblue;
+}
+
+/* 
+===================
+Reset some defaults 
+===================
+*/
+*,
+*::after,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background-color: var(--body);
+  font-family: "Montserrat", sans-serif;
+  color: var(--text);
+  transition: background 0.2s linear;
+}
+
+ul {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* 
+=============================
+Header and Navigation styling 
+=============================
+*/
+
+.headline {
+  position: relative;
+  grid-area: header;
+}
+
+.headline h1 {
+  text-align: center;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.container {
+  max-width: 1400px;
+  width: 100%;
+  margin: auto;
+}
+
+.headline .navbar {
+  background-color: var(--primary);
+  color: var(--nav-link);
+  padding: 1.2rem;
+}
+
+.headline .navbar a {
+  color: var(--nav-link);
+}
+
+.headline .navbar a.brand {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.headline .navbar .navbar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.headline .navbar .collapse.show {
+  visibility: visible;
+}
+.headline .navbar .collapse.show .mobile-menu-header {
+  display: flex;
+}
+.headline .navbar .collapse {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  max-width: 100%;
+  width: 400px;
+  visibility: hidden;
+  background-color: var(--main);
+  background-clip: padding-box;
+  transition: transform 0.3s ease-in-out;
+}
+
+.headline .navbar .mobile-menu-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.headline .navbar .collapse .mobile-menu-body {
+  display: flex;
+  justify-content: space-between;
+}
+
+.headline .navbar .mobile-menu-body ul {
+  display: flex;
+  gap: 1.2rem;
+  margin-left: auto;
+}
+
+.headline .navbar .mobile-menu-body ul li a {
+  position: relative;
+}
+
+.headline .navbar .mobile-menu-body ul li a:not(.active)::after {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.headline .navbar .mobile-menu-body ul li a::after,
+.headline .navbar .mobile-menu-body ul li a.active::after {
+  position: absolute;
+  content: "";
+  left: 0;
+  right: 0;
+  bottom: -2px;
+  height: 2px;
+  background-color: var(--nav-link);
+}
+
+.headline .navbar .mobile-menu-body ul li a:hover::after {
+  opacity: 1;
+  visibility: visible;
+  transition-delay: 0s;
+  background-color: var(--text);
+}
+
+.headline .navbar .mobile-menu-body .toggle-div {
+  margin-left: auto;
+}
+
+/* 
+===================================
+Color scheme toggle checkbox button 
+===================================
+*/
+.checkbox {
+  position: absolute;
+  opacity: 0;
+}
+.checkbox-label {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 50px;
+  height: 26px;
+  border-radius: 50px;
+  background-color: #000;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.fa-moon {
+  color: #f1c40f;
+}
+
+.fa-sun {
+  color: #f39c12;
+}
+
+.checkbox-label .ball {
+  position: absolute;
+  background-color: #fff;
+  width: 22px;
+  height: 22px;
+  right: 2px;
+  left: 2px;
+  border-radius: 50%;
+  transition: transform 0.2s linear;
+}
+
+/* 
+==================
+Inner Grid Styling 
+==================
+*/
+.inner-grid {
+  grid-area: main;
+  width: 100%;
+  max-width: 1400px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-rows: auto;
+  grid-template-areas:
+    "inner-main"
+    "sidebar";
+  row-gap: 20px;
+  margin-inline: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  justify-content: center;
+  overflow-y: auto;
+}
+
+/* 
+====================
+Main Section Styling 
+====================
+*/
+.main {
+  grid-area: inner-main;
+}
+.main .container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.main section {
+  background-color: var(--section-bg);
+  padding: 1rem;
+}
+
+/* 
+=======================
+Sidebar Section Styling
+=======================
+*/
+.sidebar {
+  grid-area: sidebar;
+  background-color: var(--section-bg);
+  padding: 1.5rem;
+}
+
+.sidebar h2 {
+  margin-bottom: 1.2rem;
+}
+
+.sidebar #side-list {
+  margin-bottom: 1.2rem;
+  margin-top: 1.2rem;
+}
+
+/* 
+======================
+Footer Section Styling 
+======================
+*/
+.footer {
+  grid-area: footer;
+  background-color: var(--footer);
+  text-align: center;
+  color: var(--nav-link);
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+
+/* 
+===================================
+Outer Grid
+===================================
+*/
+.outer-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr auto;
+  grid-template-areas:
+    "header"
+    "main"
+    "footer";
+  height: 100dvh;
+}
+
+/* 
+=======================================
+Media Queries Responsive & Color Scheme  
+=======================================
+*/
+@media (width>767.9px) {
+  /* .container {
+    padding: 0;
+  } */
+  .inner-grid {
+    grid-template-areas: "inner-main sidebar";
+    gap: 20px;
+  }
+
+  .headline .navbar .collapse {
+    position: relative;
+    visibility: visible;
+    background: none;
+  }
+
+  .headline .navbar .collapse .mobile-menu-header {
+    display: none;
+  }
+
+  .menu-button {
+    display: none;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --primary: var(--primary-dark);
+    --text: var(--text-dark);
+    --body: var(--body-dark);
+    --nav-link: var(--nav-link-dark);
+    --section-bg: var(--section-bg-dark);
+    --footer: var(--footer-dark);
+    --main: var(--main-dark);
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --primary: var(--primary);
+    --text: var(--text);
+    --body: var(--body);
+    --nav-link: var(--nav-link);
+    --section-bg: var(--section-bg);
+    --footer: var(--footer);
+    --main: var(--main);
+  }
+}
+
+[color-scheme="dark"] {
+  --primary: var(--primary-dark);
+  --text: var(--text-dark);
+  --body: var(--body-dark);
+  --nav-link: var(--nav-link-dark);
+  --section-bg: var(--section-bg-dark);
+  --footer: var(--footer-dark);
+  --main: var(--main-dark);
+}
+
+[color-scheme="light"] {
+  --primary: var(--primary-light);
+  --text: var(--text-light);
+  --body: var(--body-light);
+  --nav-link: var(--nav-link-light);
+  --section-bg: var(--section-bg-light);
+  --footer: var(--footer-light);
+  --main: var(--main-light);
+}
