@@ -19,7 +19,12 @@
     <div class="outer-grid">
       <header class="headline">
         <!-- header with title -->
-        <h1>DOM Manipulation</h1>
+        <h1
+          class="popover popover-bottom popover-center"
+          data-popover-content="Document object Model manipulation"
+        >
+          DOM Manipulation
+        </h1>
         <!-- navigation bar with at least three links -->
         <nav class="navbar">
           <div class="navbar-inner container">
@@ -61,8 +66,8 @@
             <section id="section-1">
               <h2>Weather Forecast</h2>
               <div class="weather-details">
-                <section class="current-location">
-                  <h3>Current Location</h3>
+                <section>
+                  <h3 id="current-city">Current City</h3>
                   <p>Latitude: 40.7128 N</p>
                   <p>Longitude: 74.0060 W</p>
                 </section>
@@ -72,36 +77,62 @@
                 </section>
               </div>
             </section>
-            <section id="section-2">
-              <h2>Section Two</h2>
-              <p>
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                Deleniti suscipit officia reiciendis consectetur! Tempore vel
-                voluptas alias cum consequuntur dolores excepturi itaque illum.
-                Commodi voluptatum possimus quaerat quis reprehenderit unde
-                mollitia sunt atque dolore facere soluta itaque, ipsum rerum vel
-                sint, optio, perspiciatis tempora minus. Laboriosam, ea? Ipsa,
-                ducimus accusamus? Necessitatibus, dolorem? Ea, et harum. Enim
-                voluptatem rem cumque facilis reiciendis, rerum iusto
-                accusantium blanditiis voluptate aspernatur impedit obcaecati
-                consectetur hic odit ducimus quos atque iure reprehenderit
-                soluta totam? Asperiores eum labore deleniti corrupti unde illum
-                laudantium saepe natus quae nam, quaerat recusandae molestias
-                sit perferendis doloremque hic necessitatibus officia!
-              </p>
+            <section>
+              <h2>Transport Options</h2>
+              <p>Hover over a transport option to see more details.</p>
+              <div
+                class="trans-option popover popover-top"
+                data-popover-content="A taxi is a car for hire with a driver, offering point-to-point service."
+              >
+                <div>Taxi</div>
+                <i class="fa-solid fa-car"></i>
+              </div>
+              <div
+                class="trans-option popover popover-top"
+                data-popover-content="A bus is a large road vehicle designed to carry numerous passengers."
+              >
+                <div>Bus</div>
+                <i class="fa-solid fa-bus"></i>
+              </div>
+              <div
+                class="trans-option popover popover-top"
+                data-popover-content="A train is a series of connected vehicles traveling on railways."
+              >
+                <div>Train</div>
+                <i class="fa-solid fa-train"></i>
+              </div>
+              <div
+                class="trans-option popover popover-top"
+                data-popover-content="A flight is travel by air in an airplane or other aircraft."
+              >
+                <div>Flight</div>
+                <i class="fa-solid fa-plane"></i>
+              </div>
             </section>
           </div>
         </main>
         <!-- sidebar with a list of items -->
         <aside class="sidebar">
-          <h2>Sidebar features</h2>
-          <form action="">
-            <input type="text" /><input type="button" value="Add" />
-          </form>
-          <ul id="side-list">
-            <li>Item 1</li>
-            <li>Item 2</li>
-          </ul>
+          <div class="container">
+            <section class="form">
+              <div class="form-group">
+                <input type="text" id="city" placeholder="Enter city" />
+                <input type="button" id="add-city" value="Add" />
+              </div>
+              <label for="city"> Enter city to add to your history list </label>
+            </section>
+            <section class="history">
+              <h2>City History</h2>
+              <p>
+                List of cities added to the history list. Click "x" to delete an
+                item, or click on an item to change the city for the weather
+                forecast.
+              </p>
+              <ul id="side-list">
+                <li>Toronto <button>x</button></li>
+              </ul>
+            </section>
+          </div>
         </aside>
       </div>
       <!-- footer with your name as the author -->
